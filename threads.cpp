@@ -100,15 +100,21 @@ void slowDouble(int& i)  {
 int main()
 {
 
-    vector<int> v(100, 2);
+    vector<int> v(1000, 2);
+
+
+    auto start1 = high_resolution_clock::now();
+    vector<int> doubledThreaded = mapThreader(slowDouble, v, 500);
+    auto stop1 = high_resolution_clock::now();
+    cout << "Done threaded in: " << duration_cast<microseconds>(stop1 - start1).count() << endl;
+
+
+
     auto start = high_resolution_clock::now();
     vector<int> doubled = mapThreader(slowDouble, v, 1);
     auto stop = high_resolution_clock::now();
     cout << "Done squared in: " << duration_cast<microseconds>(stop - start).count() << endl;
-    auto start1 = high_resolution_clock::now();
-    vector<int> doubledThreaded = mapThreader(slowDouble, v, 10);
-    auto stop1 = high_resolution_clock::now();
-    cout << "Done threaded in: " << duration_cast<microseconds>(stop1 - start1).count() << endl;
+   
     
     return 0;
 }

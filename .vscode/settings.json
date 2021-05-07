@@ -5,6 +5,8 @@
         "iostream": "cpp",
         "list": "cpp",
         "vector": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "ostream": "cpp",
+        "ratio": "cpp"
     }
 }

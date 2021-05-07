@@ -90,7 +90,7 @@ void doubleInt(int& i)  {
 }
 
 void slowDouble(int& i)  {
-    i = i+1;
+    i = i*1;
     this_thread::sleep_for(milliseconds(1));
 
 }
